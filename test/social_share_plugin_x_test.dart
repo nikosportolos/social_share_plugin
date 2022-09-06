@@ -1,9 +1,9 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:social_share_plugin/social_share_plugin.dart';
+import 'package:social_share_plugin_x/social_share_plugin_x.dart';
 
 void main() {
-  const MethodChannel channel = MethodChannel('social_share_plugin');
+  const MethodChannel channel = MethodChannel('social_share_plugin_x');
 
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -18,6 +18,6 @@ void main() {
   });
 
   test('getPlatformVersion', () async {
-    expect(await SocialSharePlugin.platformVersion, '42');
+    expect(await SocialSharePluginX.platformVersion, '42');
   });
 }

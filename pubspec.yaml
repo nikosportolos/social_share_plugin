@@ -1,4 +1,4 @@
-name: social_share_plugin
+name: social_share_plugin_x
 description: Social Share to Facebook and Instagram Flutter plugin.
 version: 0.4.1+2
 homepage: https://github.com/romatroskin/social_share_plugin
@@ -28,10 +28,10 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.cygnati.social_share_plugin
-        pluginClass: SocialSharePlugin
+        package: com.cygnati.social_share_plugin_x
+        pluginClass: SocialSharePluginX
       ios:
-        pluginClass: SocialSharePlugin
+        pluginClass: SocialSharePluginX
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:

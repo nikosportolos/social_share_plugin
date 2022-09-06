@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'package:flutter/services.dart';
 
-typedef Future<void>OnCancelHandler();
-typedef Future<void> OnErrorHandler(String error);
-typedef Future<void> OnSuccessHandler(String postId);
+typedef OnCancelHandler = Future<void> Function();
+typedef OnErrorHandler = Future<void> Function(String error);
+typedef OnSuccessHandler = Future<void> Function(String postId);
 
-class SocialSharePlugin {
-  static const MethodChannel _channel = const MethodChannel('social_share_plugin');
+class SocialSharePluginX {
+  static const MethodChannel _channel = MethodChannel('social_share_plugin_x');
 
   static Future<String?> get platformVersion async {
     final String? version = await _channel.invokeMethod('getPlatformVersion');

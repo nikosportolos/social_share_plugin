@@ -3,7 +3,7 @@ import FBSDKShareKit
 import Flutter
 import UIKit
 
-public class SwiftSocialSharePlugin: NSObject, FlutterPlugin, SharingDelegate {
+public class SwiftSocialSharePluginX: NSObject, FlutterPlugin, SharingDelegate {
     public func sharer(_ sharer: Sharing, didCompleteWithResults results: [String: Any]) {
         _channel.invokeMethod("onSuccess", arguments: nil)
         guard let result = _result else {
@@ -37,8 +37,8 @@ public class SwiftSocialSharePlugin: NSObject, FlutterPlugin, SharingDelegate {
     }
 
     public static func register(with registrar: FlutterPluginRegistrar) {
-        let channel = FlutterMethodChannel(name: "social_share_plugin", binaryMessenger: registrar.messenger())
-        let instance = SwiftSocialSharePlugin(fromChannel: channel)
+        let channel = FlutterMethodChannel(name: "social_share_plugin_x", binaryMessenger: registrar.messenger())
+        let instance = SwiftSocialSharePluginX(fromChannel: channel)
         registrar.addMethodCallDelegate(instance, channel: channel)
         registrar.addApplicationDelegate(instance)
     }

@@ -1,4 +1,4 @@
-package com.cygnati.social_share_plugin
+package com.cygnati.social_share_plugin_x
 
 import android.app.Activity
 import android.content.ActivityNotFoundException
@@ -27,15 +27,15 @@ import io.flutter.plugin.common.PluginRegistry.ActivityResultListener
 import java.io.File
 
 /**
- * SocialSharePlugin
+ * SocialSharePluginX
  */
-class SocialSharePlugin : FlutterPlugin, ActivityAware, MethodCallHandler,
+class SocialSharePluginX : FlutterPlugin, ActivityAware, MethodCallHandler,
   ActivityResultListener {
   private var activity: Activity? = null
   private var channel: MethodChannel? = null
   private val callbackManager: CallbackManager = CallbackManager.Factory.create()
   override fun onAttachedToEngine(binding: FlutterPluginBinding) {
-    channel = MethodChannel(binding.binaryMessenger, "social_share_plugin")
+    channel = MethodChannel(binding.binaryMessenger, "social_share_plugin_x")
     channel!!.setMethodCallHandler(this)
   }
 
@@ -62,20 +62,20 @@ class SocialSharePlugin : FlutterPlugin, ActivityAware, MethodCallHandler,
   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
     if (requestCode == TWITTER_REQUEST_CODE) {
       if (resultCode == Activity.RESULT_OK) {
-        Log.d("SocialSharePlugin", "Twitter share done.")
+        Log.d("SocialSharePluginX", "Twitter share done.")
         channel!!.invokeMethod("onSuccess", null)
       } else if (resultCode == Activity.RESULT_CANCELED) {
-        Log.d("SocialSharePlugin", "Twitter cancelled.")
+        Log.d("SocialSharePluginX", "Twitter cancelled.")
         channel!!.invokeMethod("onCancel", null)
       }
       return true
     }
     if (requestCode == INSTAGRAM_REQUEST_CODE) {
       if (resultCode == Activity.RESULT_OK) {
-        Log.d("SocialSharePlugin", "Instagram share done.")
+        Log.d("SocialSharePluginX", "Instagram share done.")
         channel!!.invokeMethod("onSuccess", null)
       } else {
-        Log.d("SocialSharePlugin", "Instagram share failed.")
+        Log.d("SocialSharePluginX", "Instagram share failed.")
         channel!!.invokeMethod("onCancel", null)
       }
       return true
@@ -170,17 +170,17 @@ class SocialSharePlugin : FlutterPlugin, ActivityAware, MethodCallHandler,
     shareDialog.registerCallback(callbackManager, object : FacebookCallback<Sharer.Result?> {
       override fun onSuccess(result: Sharer.Result?) {
         channel!!.invokeMethod("onSuccess", null)
-        Log.d("SocialSharePlugin", "Sharing successfully done.")
+        Log.d("SocialSharePluginX", "Sharing successfully done.")
       }
 
       override fun onCancel() {
         channel!!.invokeMethod("onCancel", null)
-        Log.d("SocialSharePlugin", "Sharing cancelled.")
+        Log.d("SocialSharePluginX", "Sharing cancelled.")
       }
 
       override fun onError(error: FacebookException) {
         channel!!.invokeMethod("onError", error.message)
-        Log.d("SocialSharePlugin", "Sharing error occurred.")
+        Log.d("SocialSharePluginX", "Sharing error occurred.")
       }
     })
     if (ShareDialog.canShow(SharePhotoContent::class.java)) {
@@ -195,17 +195,17 @@ class SocialSharePlugin : FlutterPlugin, ActivityAware, MethodCallHandler,
     shareDialog.registerCallback(callbackManager, object : FacebookCallback<Sharer.Result?> {
       override fun onSuccess(result: Sharer.Result?) {
         channel!!.invokeMethod("onSuccess", null)
-        Log.d("SocialSharePlugin", "Sharing successfully done.")
+        Log.d("SocialSharePluginX", "Sharing successfully done.")
       }
 
       override fun onCancel() {
         channel!!.invokeMethod("onCancel", null)
-        Log.d("SocialSharePlugin", "Sharing cancelled.")
+        Log.d("SocialSharePluginX", "Sharing cancelled.")
       }
 
       override fun onError(error: FacebookException) {
         channel!!.invokeMethod("onError", error.message)
-        Log.d("SocialSharePlugin", "Sharing error occurred.")
+        Log.d("SocialSharePluginX", "Sharing error occurred.")
       }
     })
     if (ShareDialog.canShow(ShareLinkContent::class.java)) {

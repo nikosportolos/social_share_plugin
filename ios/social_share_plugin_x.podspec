@@ -3,7 +3,7 @@
 # Run `pod lib lint social_share_plugin.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'social_share_plugin'
+  s.name             = 'social_share_plugin_x'
   s.version          = '0.4.1'
   s.summary          = 'Social Share to Facebook and Intagram Flutter plugin.'
   s.description      = <<-DESC

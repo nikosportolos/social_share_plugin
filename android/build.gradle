@@ -1,4 +1,4 @@
-group 'com.cygnati.social_share_plugin'
+group 'com.cygnati.social_share_plugin_x'
 version '1.0-SNAPSHOT'
 
 buildscript {
